@@ -1,4 +1,4 @@
-import telebot
+import telebot  # Install pyTelegramBotAPI library first
 
 bot = telebot.TeleBot('TOKEN')  # YOUR BOT TOKEN SHOULD BE HERE
 
