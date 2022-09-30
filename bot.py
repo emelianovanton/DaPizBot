@@ -1,7 +1,12 @@
-import telebot  # Install pyTelegramBotAPI library first
+import telebot
 import re
 
-bot = telebot.TeleBot('TOKEN')  # YOUR BOT TOKEN SHOULD BE HERE
+TOKEN = None
+
+with open("token.txt") as f:
+    TOKEN = f.read().strip()
+
+bot = telebot.TeleBot(TOKEN)  # YOUR BOT TOKEN SHOULD BE HERE
 
 
 @bot.message_handler(content_types=['text'])
