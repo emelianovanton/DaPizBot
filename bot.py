@@ -1,16 +1,18 @@
 import telebot  # Install pyTelegramBotAPI library first
+import re
 
 bot = telebot.TeleBot('TOKEN')  # YOUR BOT TOKEN SHOULD BE HERE
 
 
 @bot.message_handler(content_types=['text'])
-def get_text_messages(message):
-    if str.lower(message.text) == 'да':
-        bot.send_message(message.from_user.id, 'пизда')
-    elif str.lower(message.text) == 'пизда':
-        bot.send_message(message.from_user.id, 'да')
+def da_pizda_replies(message):
+    text_message = re.sub(r'[^a-zA-Z]', '', message.text)
+    if str.lower(text_message) == 'да':
+        bot.reply_to(message, "Пизда!")
+    elif str.lower(text_message) == 'пизда':
+        bot.reply_to(message, "Да!")
     else:
-        bot.send_message(message.from_user.id, 'умею отвечать только на "да" и "пизда"')
+        pass
 
 
 bot.polling(none_stop=True, interval=0)
