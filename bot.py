@@ -1,10 +1,8 @@
 import telebot
 import re
+import os
 
-TOKEN = None
-
-with open("token.txt") as f:
-    TOKEN = f.read().strip()
+TOKEN = os.environ["TOKEN"]
 
 bot = telebot.TeleBot(TOKEN)  # YOUR BOT TOKEN SHOULD BE HERE
 
