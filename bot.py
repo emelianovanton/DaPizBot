@@ -9,7 +9,7 @@ bot = telebot.TeleBot(TOKEN)  # YOUR BOT TOKEN SHOULD BE HERE
 
 @bot.message_handler(content_types=['text'])
 def da_pizda_replies(message):
-    text_message = re.sub(r'[^a-zA-Z]', '', message.text)
+    text_message = re.sub(r'[^А-Яа-я]', '', message.text)
     if str.lower(text_message) == 'да':
         bot.reply_to(message, "Пизда!")
     elif str.lower(text_message) == 'пизда':
