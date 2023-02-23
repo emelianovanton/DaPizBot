@@ -16,10 +16,10 @@ def da_pizda_replies(message):
     sleep(randint(1, 5))
     if str.lower(text_message) == 'да':
         bot.reply_to(message, "Пизда!")
-    elif str.lower(text_message) == 'пизда':
+    if str.lower(text_message) == 'пизда':
         bot.reply_to(message, "Да!")
-    else:
-        pass
+    if str.lower(text_message) == 'нет':
+        bot.reply_to(message, "Пидора ответ😏")
 
 
 bot.polling(none_stop=True, interval=0)
