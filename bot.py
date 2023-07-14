@@ -9,17 +9,16 @@ TOKEN = os.environ["TOKEN"]
 
 bot = telebot.TeleBot(TOKEN)  # YOUR BOT TOKEN SHOULD BE HERE
 
-
 @bot.message_handler(content_types=['text'])
 def da_pizda_replies(message):
-    text_message = re.sub(r'[^А-Яа-я]', '', message.text)
+    text_message = re.sub(r'[^А-Яа-яA-Za-z]', '', message.text)
     sleep(randint(1, 5))
-    if str.lower(text_message) == 'да':
+    lower_text_message = str.lower(text_message)
+    if lower_text_message == 'да' or lower_text_message == 'дa':
         bot.reply_to(message, "Пизда!")
-    if str.lower(text_message) == 'пизда':
+    if lower_text_message == 'пизда':
         bot.reply_to(message, "Да!")
-    if str.lower(text_message) == 'нет':
+    if lower_text_message == 'нет' or lower_text_message == 'нeт':
         bot.reply_to(message, "Пидора ответ😏")
-
 
 bot.polling(none_stop=True, interval=0)
