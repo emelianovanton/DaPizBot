@@ -9,6 +9,7 @@ TOKEN = os.environ["TOKEN"]
 
 bot = telebot.TeleBot(TOKEN)  # YOUR BOT TOKEN SHOULD BE HERE
 
+
 @bot.message_handler(content_types=['text'])
 def da_pizda_replies(message):
     text_message = re.sub(r'[^А-Яа-яA-Za-z]', '', message.text)
